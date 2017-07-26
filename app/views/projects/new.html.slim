@@ -1,0 +1,21 @@
+h1 New project
+= form_for(@project) do |f|
+  = f.label(:name, 'Project name: ')
+  = f.text_field :name, required: true
+  br
+  br
+  = f.label(:name, 'File with products: ')
+  = f.file_field :products, required: true
+  p Categories
+  table
+    = f.fields_for :categories do |c_f|
+      tr
+        td = c_f.label(:name, "Category #{c_f.options[:child_index] + 1}")
+        td = c_f.text_field :name, required: c_f.options[:child_index].zero?
+  br
+  = f.submit 'Create'
+
+p None category will be created by dafault
+
+'Back to projects 
+= link_to 'Projects', projects_path

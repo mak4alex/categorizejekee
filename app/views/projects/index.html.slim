@@ -1,0 +1,7 @@
+h1 Projects
+= link_to 'New project', new_project_path
+table
+  - @projects.each do |project|
+    tr
+      td = project.id
+      td = link_to project.name, project_path(project)
